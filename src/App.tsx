@@ -1,30 +1,55 @@
-import { Assets as NavigationAssets } from '@react-navigation/elements';
-import { Asset } from 'expo-asset';
-import * as SplashScreen from 'expo-splash-screen';
-import * as React from 'react';
-import { Navigation } from './navigation';
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import React from "react";
+import { Button, Text, View } from "react-native";
 
-Asset.loadAsync([
-  ...NavigationAssets,
-  require('./assets/newspaper.png'),
-  require('./assets/bell.png'),
-]);
+const Stack = createNativeStackNavigator();
 
-SplashScreen.preventAutoHideAsync();
+const ScreenOne = (props: {
+  navigation: { navigate: (arg0: string) => void };
+}) => {
+  return (
+    <View
+      style={{
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "white",
+      }}
+    >
+      <Text>Screen One</Text>
+      <Button
+        onPress={() => {
+          props.navigation.navigate("ScreenTwo");
+        }}
+        title="Go To Screen Two"
+      />
+    </View>
+  );
+};
+
+const ScreenTwo = () => {
+  return (
+    <View
+      style={{
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "white",
+      }}
+    >
+      <Text>Screen Two</Text>
+    </View>
+  );
+};
 
 export function App() {
   return (
-    <Navigation
-      linking={{
-        enabled: 'auto',
-        prefixes: [
-          // Change the scheme to match your app's scheme defined in app.json
-          'helloworld://',
-        ],
-      }}
-      onReady={() => {
-        SplashScreen.hideAsync();
-      }}
-    />
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="ScreenOne" component={ScreenOne} />
+        <Stack.Screen name="ScreenTwo" component={ScreenTwo} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }

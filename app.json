@@ -9,13 +9,15 @@
     "newArchEnabled": true,
     "scheme": "rnnavigationtest",
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.phoneboxexpo.RNnavigationtest"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.phoneboxexpo.RNnavigationtest"
     },
     "web": {
       "favicon": "./assets/favicon.png"
