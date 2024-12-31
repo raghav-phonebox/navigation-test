@@ -1,37 +1,47 @@
 {
   "expo": {
-    "name": "RN-navigation-test",
-    "slug": "RN-navigation-test",
-    "version": "1.0.0",
+    "name": "Test Project",
+    "slug": "test-project",
+    "version": "1.0.6003",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "automatic",
-    "newArchEnabled": true,
-    "scheme": "rnnavigationtest",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "cover",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": ["**/*"],
     "ios": {
+      "icon": "./assets/icon.png",
       "supportsTablet": true,
-      "bundleIdentifier": "com.phoneboxexpo.RNnavigationtest"
+      "usesAppleSignIn": true,
+      "bundleIdentifier": "com.test.project",
+      "infoPlist": {
+        "NSPhotoLibraryUsageDescription": "This app requires access to the photo library.",
+        "NSPhotoLibraryAddUsageDescription": "This app requires access to the photo library.",
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
+      "icon": "./assets/icon.png",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.phoneboxexpo.RNnavigationtest"
+      "package": "com.test.project",
+      "intentFilters": [
+        {
+          "action": "VIEW",
+          "category": ["BROWSABLE", "DEFAULT"],
+          "data": {
+            "scheme": "com.test.project"
+          }
+        }
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    },
-    "plugins": [
-      "expo-asset",
-      [
-        "expo-splash-screen",
-        {
-          "backgroundColor": "#ffffff",
-          "image": "./assets/splash-icon.png"
-        }
-      ],
-      "react-native-edge-to-edge"
-    ]
+    }
   }
 }

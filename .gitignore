@@ -7,9 +7,9 @@ node_modules/
 .expo/
 dist/
 web-build/
-expo-env.d.ts
 
 # Native
+google-services.json
 *.orig.*
 *.jks
 *.p8
@@ -35,4 +35,14 @@ yarn-error.*
 # typescript
 *.tsbuildinfo
 
-app-example
+# Temp folder _screen updating for new Design
+_screens
+screens/**/_*.tsx
+
+_dummy-data-to-test.*
+
+__ignore*
+
+___*.ts*
+
+test.txt
